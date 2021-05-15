@@ -79,8 +79,9 @@ def oauth_callback(request):
         Redirects user to the page they came from at the start of the oauth
         procedure. """
     error = request.GET.get('error')
+    error_description = request.GET.get('error_description')
     if error:
-        return render_oauth_error(error)
+        return render_oauth_error(error, error_description)
     code = request.GET.get('code')
     state = request.GET.get('state')
 
@@ -132,14 +133,16 @@ def refresh_oauth_token(request):
     return oauth_token
 
 
-def render_oauth_error(error_message):
+def render_oauth_error(error, message):
     """ If there is an error in the oauth callback, attempts to render it in a
         template that can be styled; otherwise, if OAUTH_ERROR_TEMPLATE not
         found, this will return a HttpResponse with status 403 """
-    logger.error("OAuth error %s" % error_message)
+    logger.error("OAuth error %s" % error)
     try:
-        template = loader.render_to_string(settings.CANVAS_OAUTH_ERROR_TEMPLATE,
-                                           {"message": error_message})
+        template = loader.render_to_string(
+            settings.CANVAS_OAUTH_ERROR_TEMPLATE,
+            {'error': error, 'message': message}
+        )
     except TemplateDoesNotExist:
-        return HttpResponse("Error: %s" % error_message, status=403)
+        return HttpResponse("Error: %s" % error, status=403)
     return HttpResponse(template, status=403)

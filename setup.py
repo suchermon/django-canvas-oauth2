@@ -14,9 +14,9 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='canvas-oauth',
     version=VERSION,
-    url="https://github.com/Harvard-University-iCommons/django-canvas-oauth",
-    author="HUIT Academic Technology",
-    author_email="academictechnology@harvard.edu",
+    url="https://github.com/suchermon/django-canvas-oauth",
+    author="HUIT Academic Technology, Mon Sucher (forked)",
+    author_email="academictechnology@harvard.edu, msucher@umn.edu",
     description='A reusable Django app used to handle OAuth2 flow with Canvas.',
     long_description=README,
     license="License :: OSI Approved :: MIT License",
