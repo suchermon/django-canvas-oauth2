@@ -5,6 +5,8 @@
 Django Canvas OAuth
 ============
 
+Cloned from: https://github.com/Harvard-University-iCommons/django-canvas-oauth/tree/master/canvas_oauth
+
 **Django Canvas OAuth** is a Django app that manages OAuth2 Tokens used to make API calls against a Canvas LMS instance.
 
 The `OAuth workflow`_ is managed by this library and a CanvasOAuth2Token model is used to store authenticated tokens.
