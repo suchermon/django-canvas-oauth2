@@ -22,7 +22,7 @@ Requires python >= 3.6 and Django >= 2.0
 
 .. code-block:: bash
 
-    pip install git+https://github.com/suchermon/django-canvas-oauth.git@auth-url-scopes-fix#egg=canvas-oauth
+    pip install git+https://github.com/suchermon/django-canvas-oauth2.git@better-error-msg#egg=canvas-oauth
 
 
 Quickstart
